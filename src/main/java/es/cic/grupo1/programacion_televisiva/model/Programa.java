@@ -1,14 +1,14 @@
 package es.cic.grupo1.programacion_televisiva.model;
 
 import java.security.Timestamp;
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import jakarta.persistence.CollectionTable;
+
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -37,7 +37,7 @@ public class Programa {
     private List<String> dias = new ArrayList<>(); // Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo
 
     @ManyToOne 
-    @JoinColumn(name = "tipo_programa_id")
+    @JoinColumn(name = "tipo_programa_id",nullable = true)
     private TipoPrograma tipoPrograma;
 
     // Getters and Setters
@@ -118,4 +118,7 @@ public class Programa {
     public void setTipoPrograma(TipoPrograma tipoPrograma) {
         this.tipoPrograma = tipoPrograma;
     }
+
+
+  
 }
