@@ -1,3 +1,10 @@
+
+# Ignorar la carpeta de compilación (target)
+target/
+
+# Ignorar la configuración de VS Code
+.vscode/
+
 # Compiled class file
 *.class
 
