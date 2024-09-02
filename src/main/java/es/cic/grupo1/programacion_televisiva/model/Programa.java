@@ -1,5 +1,6 @@
 package es.cic.grupo1.programacion_televisiva.model;
 
+import java.security.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +27,8 @@ public class Programa {
     private String clasificacion;
     private String canal;
 
-    private LocalDateTime fechaIni;
-    private LocalDateTime fechaFin;
+    private Timestamp fechaIni;
+    private Timestamp fechaFin;
 
     private boolean semanal;
 
@@ -35,7 +36,7 @@ public class Programa {
     @Column(name = "dias", nullable = true)
     private List<String> dias = new ArrayList<>(); // Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo
 
-    @ManyToOne
+    @ManyToOne 
     @JoinColumn(name = "tipo_programa_id")
     private TipoPrograma tipoPrograma;
 
@@ -78,19 +79,19 @@ public class Programa {
         this.canal = canal;
     }
 
-    public LocalDateTime getFechaIni() {
+    public Timestamp getFechaIni() {
         return fechaIni;
     }
 
-    public void setFechaIni(LocalDateTime fechaIni) {
+    public void setFechaIni(Timestamp fechaIni) {
         this.fechaIni = fechaIni;
     }
 
-    public LocalDateTime getFechaFin() {
+    public Timestamp getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(LocalDateTime fechaFin) {
+    public void setFechaFin(Timestamp fechaFin) {
         this.fechaFin = fechaFin;
     }
 
