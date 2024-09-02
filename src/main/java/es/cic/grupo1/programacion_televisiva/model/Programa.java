@@ -1,6 +1,7 @@
 package es.cic.grupo1.programacion_televisiva.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -32,7 +33,7 @@ public class Programa {
 
     
     @Column(name = "dias", nullable = true)
-    private List<String> dias; // nullable by default
+    private List<String> dias = new ArrayList<>(); // Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo
 
     @ManyToOne
     @JoinColumn(name = "tipo_programa_id")
@@ -44,9 +45,6 @@ public class Programa {
         return id;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return nombre;
