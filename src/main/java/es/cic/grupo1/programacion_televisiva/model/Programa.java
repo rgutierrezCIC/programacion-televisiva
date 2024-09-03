@@ -1,6 +1,6 @@
 package es.cic.grupo1.programacion_televisiva.model;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import java.util.ArrayList;
 import java.util.List;
