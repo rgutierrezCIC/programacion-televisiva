@@ -2,7 +2,7 @@
 CREATE TABLE tipo_programa (
     id UUID PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
-    descripcion VARCHAR(500),
+    descripcion VARCHAR(255),
     fechaCreacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     fechaModificacion TIMESTAMP
 );
