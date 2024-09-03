@@ -1,7 +1,7 @@
-INSERT INTO tipo_programa (id, nombre, descripcion, fechaCreacion, fechaModificacion) VALUES
-    (random_uuid(), 'Documental', 'Programas educativos y de información factual', '2022-05-15 10:00:00', '2022-05-15 10:00:00'),
-    (random_uuid(), 'Noticiero', 'Programas de noticias y actualidad', '2022-06-20 11:00:00', '2022-06-20 11:00:00'),
-    (random_uuid(), 'Serie', 'Series de ficción y entretenimiento', '2022-07-25 12:00:00', '2022-07-25 12:00:00');
+INSERT INTO tipo_programa (id, nombre, descripcion, fecha_creacion, fecha_modificacion) VALUES
+    (random_uuid(), 'Documental', 'Programas educativos y de información factual', '2022-05-15 10:00:00', null),
+    (random_uuid(), 'Noticiero', 'Programas de noticias y actualidad', '2022-06-20 11:00:00', null),
+    (random_uuid(), 'Serie', 'Series de ficción y entretenimiento', '2022-07-25 12:00:00', null);
 
 INSERT INTO programa (id, nombre, descripcion, clasificacion, canal, fecha_inicio, fecha_fin, semanal, dias, favorito, tipo_programa_id) VALUES
     (random_uuid(), 'Noticias de la Mañana', 'Noticias diarias matutinas', 'TP', 'Canal 1', '2023-09-02 08:00:00', '2023-09-02 09:00:00', TRUE, ARRAY['Lunes','Martes','Miércoles','Jueves','Viernes'], false, (SELECT id FROM tipo_programa WHERE nombre='Noticiero' LIMIT 1)),
