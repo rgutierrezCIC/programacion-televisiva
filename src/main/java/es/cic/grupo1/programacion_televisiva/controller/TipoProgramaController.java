@@ -44,9 +44,8 @@ public class TipoProgramaController {
         return programa.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<TipoPrograma> updateTipoPrograma(@PathVariable UUID id,
-            @RequestBody TipoPrograma tipoPrograma) throws Exception {
+    @PutMapping
+    public ResponseEntity<TipoPrograma> updateTipoPrograma(@RequestBody TipoPrograma tipoPrograma) throws Exception {
 
         Optional<TipoPrograma> existingTipoPrograma = tipoProgramaService.getTipoProgramaById(tipoPrograma.getId());
 
