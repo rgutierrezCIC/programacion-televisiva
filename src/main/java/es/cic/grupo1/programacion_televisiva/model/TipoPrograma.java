@@ -3,6 +3,7 @@ package es.cic.grupo1.programacion_televisiva.model;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+import java.util.ArrayList;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -24,7 +25,7 @@ public class TipoPrograma {
     private LocalDateTime fechaModificacion;
 
     @OneToMany(mappedBy = "tipoPrograma", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Programa> programas;
+    private List<Programa> programas = new ArrayList<>();
 
     public TipoPrograma() {
     }
