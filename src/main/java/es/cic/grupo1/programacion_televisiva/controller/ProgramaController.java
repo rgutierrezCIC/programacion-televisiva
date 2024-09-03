@@ -56,7 +56,7 @@ public class ProgramaController {
             return ResponseEntity.notFound().build();
         }
 
-
+        programa.setFavorito(programa.isFavorito());
         programa.setCanal(programa.getCanal()); 
         programa.setDescripcion(programa.getDescripcion());
         programa.setNombre(programa.getNombre());

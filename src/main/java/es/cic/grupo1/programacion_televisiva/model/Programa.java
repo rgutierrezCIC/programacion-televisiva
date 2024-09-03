@@ -31,7 +31,7 @@ public class Programa {
     private Timestamp fechaFin;
 
     private boolean semanal;
-
+    private boolean favorito;
     
     @Column(name = "dias", nullable = true)
     private List<String> dias = new ArrayList<>(); // Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo
@@ -46,7 +46,9 @@ public class Programa {
         return id;
     }
 
-
+    public void setFavorito(boolean favorito) {
+        this.favorito = favorito;
+    }
     public String getNombre() {
         return nombre;
     }
@@ -117,6 +119,11 @@ public class Programa {
 
     public void setTipoPrograma(TipoPrograma tipoPrograma) {
         this.tipoPrograma = tipoPrograma;
+    }
+
+
+    public boolean isFavorito() {
+        return favorito;
     }
 
 
