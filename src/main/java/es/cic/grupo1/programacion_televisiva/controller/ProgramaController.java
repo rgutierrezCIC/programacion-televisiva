@@ -1,5 +1,6 @@
 package es.cic.grupo1.programacion_televisiva.controller;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import java.util.Optional;
@@ -30,6 +31,7 @@ public class ProgramaController {
   
     @PostMapping
     public ResponseEntity<UUID> createPrograma(@RequestBody Programa programa) {
+        programa.setFechaIni(new Timestamp(System.currentTimeMillis()));
         Programa savedPrograma = programaService.savePrograma(programa);
         return ResponseEntity.ok(savedPrograma.getId());
     }
@@ -48,7 +50,7 @@ public class ProgramaController {
     }
 
    
-    @PutMapping("/put")
+    @PutMapping
     public ResponseEntity<Programa> updatePrograma(@RequestBody Programa programa) throws Exception {
         
         Optional<Programa> existingPrograma = programaService.getProgramaById(programa.getId());
@@ -89,7 +91,7 @@ public class ProgramaController {
         if (existingPrograma.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-
+   
         programaService.deletePrograma(id);
         return ResponseEntity.noContent().build();
     }

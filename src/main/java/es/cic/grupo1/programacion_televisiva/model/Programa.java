@@ -19,15 +19,16 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Programa {
      @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+     @GeneratedValue
     private UUID id;
 
     private String nombre;
     private String descripcion;
     private String clasificacion;
     private String canal;
-
+    @Column(name = "fecha_inicio", nullable = true)
     private Timestamp fechaIni;
+    @Column(name = "fecha_fin", nullable = true)
     private Timestamp fechaFin;
 
     private boolean semanal;
