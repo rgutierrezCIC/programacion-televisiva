@@ -1,7 +1,7 @@
 -- Crear tabla tipo_programa
 CREATE TABLE tipo_programa (
     id UUID PRIMARY KEY,
-    tipo VARCHAR(255) NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
     descripcion VARCHAR(500),
     fechaCreacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     fechaModificacion TIMESTAMP
@@ -19,5 +19,6 @@ CREATE TABLE programa (
     semanal BOOLEAN,
     dias VARCHAR(50),
     tipo_programa_id UUID,
+    favorito BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (tipo_programa_id) REFERENCES tipo_programa(id)
 );
