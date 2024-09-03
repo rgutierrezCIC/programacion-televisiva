@@ -5,10 +5,11 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import es.cic.grupo1.programacion_televisiva.model.Programa;
 import es.cic.grupo1.programacion_televisiva.repository.ProgramaRepository;
-
+@Service
 public class ProgramaService {
     @Autowired
     private ProgramaRepository programaRepository;
