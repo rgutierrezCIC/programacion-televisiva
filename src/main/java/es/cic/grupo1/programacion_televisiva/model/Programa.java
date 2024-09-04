@@ -1,25 +1,21 @@
 package es.cic.grupo1.programacion_televisiva.model;
 
 import java.sql.Timestamp;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-
 import jakarta.persistence.Column;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Programa {
-     @Id
-     @GeneratedValue
+    @Id
+    @GeneratedValue
     private UUID id;
 
     private String nombre;
@@ -33,12 +29,12 @@ public class Programa {
 
     private boolean semanal;
     private boolean favorito;
-    
+
     @Column(name = "dias", nullable = true)
     private List<String> dias = new ArrayList<>(); // Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo
 
-    @ManyToOne 
-    @JoinColumn(name = "tipo_programa_id",nullable = true)
+    @ManyToOne
+    @JoinColumn(name = "tipo_programa_id", nullable = true)
     private TipoPrograma tipoPrograma;
 
     // Getters and Setters
@@ -50,6 +46,7 @@ public class Programa {
     public void setFavorito(boolean favorito) {
         this.favorito = favorito;
     }
+
     public String getNombre() {
         return nombre;
     }
@@ -122,11 +119,8 @@ public class Programa {
         this.tipoPrograma = tipoPrograma;
     }
 
-
     public boolean isFavorito() {
         return favorito;
     }
 
-
-  
 }

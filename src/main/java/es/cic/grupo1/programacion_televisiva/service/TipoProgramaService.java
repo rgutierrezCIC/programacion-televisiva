@@ -19,6 +19,7 @@ public class TipoProgramaService {
 
     public TipoPrograma saveTipoPrograma(TipoPrograma tipoPrograma) {
         tipoPrograma.setFechaCreacion(LocalDateTime.now());
+        tipoPrograma.setFechaModificacion(null);
         return tipoProgramaRepository.save(tipoPrograma);
     }
 
@@ -35,6 +36,7 @@ public class TipoProgramaService {
     }
 
     public TipoPrograma updateTipoPrograma(TipoPrograma tipoPrograma) {
+        tipoPrograma.setFechaModificacion(LocalDateTime.now());
         return tipoProgramaRepository.save(tipoPrograma);
     }
 

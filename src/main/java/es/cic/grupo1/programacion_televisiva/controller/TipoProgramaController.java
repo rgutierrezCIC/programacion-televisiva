@@ -45,14 +45,15 @@ public class TipoProgramaController {
     }
 
     @PutMapping
-    public ResponseEntity<TipoPrograma> updateTipoPrograma(@RequestBody TipoPrograma tipoPrograma) throws Exception {
+    public ResponseEntity<TipoPrograma> updateTipoPrograma(@RequestBody TipoPrograma newTipoPrograma) throws Exception {
 
-        Optional<TipoPrograma> existingTipoPrograma = tipoProgramaService.getTipoProgramaById(tipoPrograma.getId());
+        Optional<TipoPrograma> existingTipoPrograma = tipoProgramaService.getTipoProgramaById(newTipoPrograma.getId());
 
         if (existingTipoPrograma.isPresent()) {
             // TipoPrograma programaToUpdate = existingTipoPrograma.get();
-            tipoPrograma.setFechaModificacion(LocalDateTime.now());
-            return ResponseEntity.ok(tipoProgramaService.saveTipoPrograma(tipoPrograma));
+            // tipoPrograma.setFechaModificacion(LocalDateTime.now());
+            // TODO: comprobar fechas de newTipoPrograma
+            return ResponseEntity.ok(tipoProgramaService.updateTipoPrograma(newTipoPrograma));
         } else {
             return ResponseEntity.notFound().build();
         }
