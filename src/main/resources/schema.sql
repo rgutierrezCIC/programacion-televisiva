@@ -20,5 +20,5 @@ CREATE TABLE programa (
     dias VARCHAR(50),
     tipo_programa_id UUID,
     favorito BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (tipo_programa_id) REFERENCES tipo_programa(id)
+    FOREIGN KEY (tipo_programa_id) REFERENCES tipo_programa(id) ON DELETE SET NULL
 );

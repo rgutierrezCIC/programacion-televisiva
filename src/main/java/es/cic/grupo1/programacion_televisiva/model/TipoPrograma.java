@@ -28,7 +28,8 @@ public class TipoPrograma {
     private LocalDateTime fechaModificacion;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "tipoPrograma", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "tipoPrograma", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH,
+            CascadeType.DETACH })
     private List<Programa> programas = new ArrayList<>();
 
     public TipoPrograma() {
