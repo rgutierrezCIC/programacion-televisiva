@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.cic.grupo1.programacion_televisiva.model.Programa;
 import es.cic.grupo1.programacion_televisiva.model.TipoPrograma;
 import es.cic.grupo1.programacion_televisiva.service.TipoProgramaService;
 
@@ -41,6 +42,26 @@ public class TipoProgramaController {
     public ResponseEntity<TipoPrograma> getProgramaById(@PathVariable UUID id) {
         Optional<TipoPrograma> programa = tipoProgramaService.getTipoProgramaById(id);
         return programa.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    // @GetMapping
+    // public ResponseEntity<List<Programa>> getAllProgramasByTipo(TipoPrograma
+    // tipoPrograma) {
+    // List<Programa> programas =
+    // tipoProgramaService.getAllProgramasByTipo(tipoPrograma);
+    // return ResponseEntity.ok(programas);
+    // }
+
+    @GetMapping("/programas/{id}")
+    public ResponseEntity<List<Programa>> getAllProgramasByTipo(@PathVariable UUID id) {
+        Optional<TipoPrograma> optionalTipoPrograma = tipoProgramaService.getTipoProgramaById(id);
+        if (optionalTipoPrograma.isPresent()) {
+            TipoPrograma tipoPrograma = optionalTipoPrograma.get();
+            List<Programa> programas = tipoProgramaService.getAllProgramasByTipo(tipoPrograma);
+            return ResponseEntity.ok(programas);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PutMapping

@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import es.cic.grupo1.programacion_televisiva.model.Programa;
 import es.cic.grupo1.programacion_televisiva.model.TipoPrograma;
 import es.cic.grupo1.programacion_televisiva.repository.TipoProgramaRepository;
 
@@ -25,6 +26,10 @@ public class TipoProgramaService {
 
     public List<TipoPrograma> getAllTipoProgramas() {
         return tipoProgramaRepository.findAll();
+    }
+
+    public List<Programa> getAllProgramasByTipo(TipoPrograma tipoPrograma) {
+        return tipoPrograma.getProgramas();
     }
 
     public Optional<TipoPrograma> getTipoProgramaById(UUID id) {

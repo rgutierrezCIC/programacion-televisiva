@@ -3,6 +3,9 @@ package es.cic.grupo1.programacion_televisiva.model;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 
 import jakarta.persistence.CascadeType;
@@ -24,6 +27,7 @@ public class TipoPrograma {
     private LocalDateTime fechaCreacion;
     private LocalDateTime fechaModificacion;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "tipoPrograma", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Programa> programas = new ArrayList<>();
 
@@ -70,6 +74,14 @@ public class TipoPrograma {
 
     public void setFechaModificacion(LocalDateTime fechaModificacion) {
         this.fechaModificacion = fechaModificacion;
+    }
+
+    public List<Programa> getProgramas() {
+        return programas;
+    }
+
+    public void setProgramas(List<Programa> programas) {
+        this.programas = programas;
     }
 
     @PrePersist
